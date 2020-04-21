@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots"
+    }
+    maven { url "https://repo.dmulloy2.net/nexus/repository/public/" }
+    maven {
+        name 'BungeeCord'
+        url 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+    maven { url "https://repo.dmulloy2.net/nexus/repository/public/" }
+
+    mavenLocal()
+
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
+    compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.7.2'
+    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.5.0";
+    compileOnly "org.spigotmc:spigot:1.15.1-R0.1-SNAPSHOT"
+}
