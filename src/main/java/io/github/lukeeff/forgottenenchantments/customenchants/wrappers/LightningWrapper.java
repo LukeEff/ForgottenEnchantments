@@ -1,25 +1,29 @@
 package io.github.lukeeff.forgottenenchantments.customenchants.wrappers;
 
 import org.bukkit.*;
-import org.bukkit.enchantments.Enchantment;
-import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class LightningWrapper extends CustomCombatEnchantWrapper {
+public class LightningWrapper extends CustomEnchantWrapper {
 
     private static final String NAME = "Smitten";
     private static final int MAXLEVEL = 4;
-    private static final int chancePerLevel = 5;
+    private static final int CHANCEPERLEVEL = 5;
     private static final Sound LIGHTNING = Sound.ENTITY_LIGHTNING_BOLT_IMPACT;
+    protected static final float VOLUME = 1;
+    protected static final float PITCH = 1;
 
     public LightningWrapper(String nameSpace) {
-        super(nameSpace);
+        super(nameSpace, NAME, MAXLEVEL, CHANCEPERLEVEL);
     }
 
+    /**
+     * The lightning combat ability method called when a living entity
+     * attacks another living entity.
+     * @param event the event in which the ability is applicable
+     */
     @Override
     public void combatAbility(EntityDamageByEntityEvent event) {
         ItemMeta meta =((LivingEntity) event.getDamager()).getEquipment().getItemInMainHand().getItemMeta();
@@ -42,49 +46,4 @@ public class LightningWrapper extends CustomCombatEnchantWrapper {
         world.playSound(location, LIGHTNING, VOLUME, PITCH);
     }
 
-    @Override
-    @Deprecated
-    public String getName() {
-        return NAME;
-    }
-
-    public String getDisplayName() {
-        return NAME;
-    }
-
-    @Override
-    public int getMaxLevel() {
-        return MAXLEVEL;
-    }
-
-    @Override
-    public int getStartLevel() {
-        return STARTLEVEL;
-    }
-
-    @Override
-    public EnchantmentTarget getItemTarget() {
-        return null;
-    }
-
-    @Override
-    public boolean isTreasure() {
-        return false;
-    }
-
-    @Override
-    @Deprecated
-    public boolean isCursed() {
-        return false;
-    }
-
-    @Override
-    public boolean conflictsWith(Enchantment enchantment) {
-        return false;
-    }
-
-    @Override
-    public boolean canEnchantItem(ItemStack itemStack) {
-        return false;
-    }
 }

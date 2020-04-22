@@ -20,7 +20,6 @@ abstract public class AbstractEnchant implements InterfaceEnchant {
             Player player = (Player) sender;
             processEnchant(player, args, enchant);
         }
-        //sender.sendMessage(ChatColor.RED + "Usage: /el <level>" ); //TODO add more to this
         return true;
     }
 

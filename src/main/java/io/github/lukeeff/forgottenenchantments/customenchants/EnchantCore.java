@@ -1,7 +1,6 @@
 package io.github.lukeeff.forgottenenchantments.customenchants;
 
-import io.github.lukeeff.forgottenenchantments.customenchants.wrappers.CustomCombatEnchantWrapper;
-import org.bukkit.NamespacedKey;
+import io.github.lukeeff.forgottenenchantments.customenchants.wrappers.CustomEnchantWrapper;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -38,7 +37,7 @@ public class EnchantCore {
      * @return a String with the enchantment name and the level appended to the end.
      */
     public static String getEnchantName(final Enchantment enchantment, final int enchantmentLevel) {
-        final String enchantName = ((CustomCombatEnchantWrapper) enchantment).getDisplayName();
+        final String enchantName = ((CustomEnchantWrapper) enchantment).getDisplayName();
         final String numeralLevel = getNumeralLevel(enchantmentLevel, enchantment);
         return enchantName + " " + numeralLevel;
     }
