@@ -4,3 +4,9 @@ api-version: 1.15
 author: lukeeff, DarkenedFusion
 description: Forgotten enchantments
 main: io.github.lukeeff.forgottenenchantments.ForgottenEnchantments
+commands:
+  smitten:
+    description: Apply a custom enchantment
+    usage: /smitten <enchantment> <level>
+    permission: forgottenenchantments.smitten
+    permission-message: You do not have permission to apply a custom enchantment.
