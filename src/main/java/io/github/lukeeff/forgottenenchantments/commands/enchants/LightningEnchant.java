@@ -7,8 +7,13 @@ import org.bukkit.command.CommandSender;
 
 public class LightningEnchant extends AbstractEnchant implements CommandExecutor {
 
+    public LightningEnchant(){
+        enchant = EnchantInitializer.LIGHTNING;
+    }
+
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        return handleOnCommand(commandSender, strings, EnchantInitializer.LIGHTNING);
+        return onCommand(commandSender, strings);
     }
+
 }

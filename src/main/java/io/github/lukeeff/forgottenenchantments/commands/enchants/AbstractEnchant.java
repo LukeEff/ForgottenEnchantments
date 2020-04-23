@@ -1,10 +1,10 @@
 package io.github.lukeeff.forgottenenchantments.commands.enchants;
 
 import io.github.lukeeff.forgottenenchantments.commands.SubCommand;
+import io.github.lukeeff.forgottenenchantments.commands.SubCommandInterface;
 import io.github.lukeeff.forgottenenchantments.customenchants.EnchantCore;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -13,13 +13,14 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract public class AbstractEnchant implements InterfaceEnchant {
+abstract public class AbstractEnchant implements InterfaceEnchant, SubCommandInterface {
 
-    public boolean handleOnCommand(CommandSender sender, String[] args, Enchantment enchant) {
-        if(sender instanceof Player && args.length > 0) {
-            Player player = (Player) sender;
-            processEnchant(player, args, enchant);
-        }
+    Enchantment enchant;
+    private final int levelIndex = 1;
+
+    @Override
+    public boolean onCommand(Player player, String[] args) {
+        processEnchant(player, args, enchant);
         return true;
     }
 
@@ -42,7 +43,7 @@ abstract public class AbstractEnchant implements InterfaceEnchant {
     @Override
     public Integer getLevel(String[] args) {
         try {
-            return Integer.parseInt(args[0]);
+            return Integer.parseInt(args[levelIndex]);
         } catch (NumberFormatException nfe) {
             return DEFAULTLEVEL;
         }

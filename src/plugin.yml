@@ -5,8 +5,8 @@ author: lukeeff, DarkenedFusion
 description: Forgotten enchantments
 main: io.github.lukeeff.forgottenenchantments.ForgottenEnchantments
 commands:
-  smitten:
+  fenchant:
     description: Apply a custom enchantment
-    usage: /smitten <enchantment> <level>
-    permission: forgottenenchantments.smitten
+    usage: /fenchant <enchantment> <level>
+    permission: forgottenenchantments.fenchant
     permission-message: You do not have permission to apply a custom enchantment.
